@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanti Island - Онлайн Курс</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #E0F7FA 0%, #FFFFFF 50%, #FFF6E0 100%);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Боковая панель */
+        .sidebar {
+            width: 250px;
+            background: #FFFFFF;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px 15px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            color: #00BCD4;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-item:hover {
+            background: #E0F7FA;
+            border-left-color: #00BCD4;
+            padding-left: 20px;
+        }
+
+        .nav-item.active {
+            background: #00BCD4;
+            color: white;
+            border-left-color: #D4AF37;
+            font-weight: 600;
+        }
+
+        .nav-item .day-number {
+            display: inline-block;
+            background: #D4AF37;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .nav-item.active .day-number {
+            background: white;
+            color: #00BCD4;
+        }
+
+        /* Основной контент */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            flex: 1;
+        }
+
+        .hero {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.8em;
+            color: #00BCD4;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            color: #D0AF37;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* Карточки с информацией */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #00BCD4;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Кнопки */
+        .btn-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00BCD4 40%, #40E0D0 80%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 188, 212, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #D0AF37 40%, #FFD840 80%);
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Боковая панель навигации -->
+    <div class="sidebar">
+        <h2>🌴 Shanti Course</h2>
+        <a href="index.html" class="nav-item active">
+            <span class="day-number">🏠</span> Начало курса
+        </a>
+        <a href="day-1.html" class="nav-item">
+            <span class="day-number">1</span> День 1 - Введение
+        </a>
+        <a href="day-2.html" class="nav-item">
+            <span class="day-number">2</span> День 2 - Практика
+        </a>
+        <a href="day-3.html" class="nav-item">
+            <span class="day-number">3</span> День 3 - Осознанность
+        </a>
+        <a href="day-4.html" class="nav-item">
+            <span class="day-number">4</span> День 4 - Гармония
+        </a>
+        <a href="day-5.html" class="nav-item">
+            <span class="day-number">5</span> День 5 - Энергия
+        </a>
+        <a href="day-6.html" class="nav-item">
+            <span class="day-number">6</span> День 6 - Трансформация
+        </a>
+        <a href="day-7.html" class="nav-item">
+            <span class="day-number">7</span> День 7 - Интеграция
+        </a>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="main-content">
+        <div class="hero">
+            <h1>🌿 Добро пожаловать на Shanti Island!</h1>
+            <div class="subtitle">🧘 Онлайн совершенствования и гармонии</div>
+            <p>
+                Вы начинаете уникальную программу развития длительностью 7 дней. Каждый день посвящён определённой теме:
+                от медитации до гармонии с натурой. Вы научитесь глубокому осознанному дыханию, упражнениям, работе с энергией и откроете красоту в себе.
+            </p>
+        </div>
+
+        <!-- Информационные карточки -->
+        <div class="info-cards">
+            <div class="card">
+                <div class="icon">🧩</div>
+                <h3>7 дней практики</h3>
+                <p>Структурированная программа с пошаговыми упражнениями и видео-сопровождением</p>
+            </div>
+            <div class="card">
+                <div class="icon">🕓</div>
+                <h3>Гибкий режим занятий</h3>
+                <p>Вы сами выбираете темп занятий и темы. Никаких жёстких расписаний</p>
+            </div>
+            <div class="card">
+                <div class="icon">💚</div>
+                <h3>Сообщество поддержки</h3>
+                <p>Присоединяйтесь к общему чату участников для обмена опытом и поддержки</p>
+            </div>
+        </div>
+
+        <!-- Кнопки -->
+        <div class="btn-container">
+            <a href="day-1.html" class="btn">🚀 Начать курс</a>
+            <a href="#info" class="btn btn-secondary">📚 Подробнее о курсе</a>
+        </div>
+    </div>
+</body>
+</html>
