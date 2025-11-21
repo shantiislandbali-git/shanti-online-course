@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanti Island | Онлайн Курс</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <title>Shanti Island — Онлайн Курс</title>
     <style>
         * {
             margin: 0;
@@ -12,19 +11,31 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #FFFFFF;
+            --bg-muted: #F9FAFB;
+            --text: #111111;
+            --text-secondary: #6B7280;
+            --border: #E5E7EB;
+            --primary: #2563EB;
+            --primary-hover: #1D4ED8;
+            --sidebar-width: 220px;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to bottom, #FFF8E1 0%, #FFFFFF 100%);
-            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             display: flex;
-            color: #795548;
+            min-height: 100vh;
         }
 
         /* Боковая панель */
         .sidebar {
-            width: 280px;
-            background: #FFFFFF;
-            box-shadow: 2px 0 20px rgba(46, 125, 50, 0.08);
+            width: var(--sidebar-width);
+            background: var(--bg-muted);
+            border-right: 1px solid var(--border);
             padding: 40px 0;
             position: fixed;
             height: 100vh;
@@ -32,310 +43,213 @@
         }
 
         .sidebar-header {
-            padding: 0 25px 30px 25px;
-            border-bottom: 1px solid #A5D6A7;
+            padding: 0 24px 32px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 24px;
         }
 
-        .sidebar h2 {
-            font-family: 'Playfair Display', serif;
-            color: #2E7D32;
-            font-size: 1.5em;
-            margin-bottom: 8px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .sidebar-subtitle {
-            font-size: 0.85em;
-            color: #795548;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .nav-section {
-            padding: 25px 0;
+        .sidebar-header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.02em;
         }
 
         .nav-item {
-            display: flex;
-            align-items: center;
-            padding: 14px 25px;
-            margin: 2px 0;
-            color: #795548;
+            display: block;
+            padding: 10px 24px;
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-            font-size: 0.95em;
-            letter-spacing: 0.3px;
+            font-size: 14px;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
         }
 
         .nav-item:hover {
-            background: rgba(165, 214, 167, 0.15);
-            border-left-color: #A5D6A7;
-            color: #2E7D32;
+            background: var(--bg);
+            color: var(--text);
         }
 
         .nav-item.active {
-            background: rgba(165, 214, 167, 0.25);
-            border-left-color: #2E7D32;
-            color: #2E7D32;
+            background: var(--bg);
+            color: var(--primary);
+            border-left-color: var(--primary);
             font-weight: 500;
-        }
-
-        .day-marker {
-            min-width: 32px;
-            height: 32px;
-            border: 2px solid #A5D6A7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 0.85em;
-            font-weight: 500;
-            color: #2E7D32;
-            transition: all 0.3s ease;
-        }
-
-        .nav-item.active .day-marker {
-            background: #2E7D32;
-            border-color: #2E7D32;
-            color: #FFFFFF;
         }
 
         /* Основной контент */
         .main-content {
-            margin-left: 280px;
-            padding: 60px;
+            margin-left: var(--sidebar-width);
             flex: 1;
+            padding: 60px 80px;
+            max-width: 900px;
         }
 
         .hero {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto 80px;
-            padding: 80px 40px;
+            margin-bottom: 80px;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2em;
-            color: #2E7D32;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3em;
-            color: #795548;
-            margin-bottom: 30px;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(to right, #A5D6A7, #FFCC80);
-            margin: 30px auto;
-        }
-
-        .hero-description {
-            font-size: 1.05em;
-            color: #795548;
-            line-height: 1.8;
-            margin-top: 30px;
-            opacity: 0.9;
-        }
-
-        /* Карточки курса */
-        .course-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto 60px;
-        }
-
-        .feature-card {
-            background: #FFFFFF;
-            padding: 40px 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(46, 125, 50, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 3px solid #A5D6A7;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
-        }
-
-        .feature-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3em;
-            color: #2E7D32;
-            margin-bottom: 15px;
+        .hero h2 {
+            font-size: 36px;
             font-weight: 600;
+            color: var(--text);
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
         }
 
-        .feature-text {
-            color: #795548;
+        .hero .subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero p {
+            font-size: 15px;
+            color: var(--text-secondary);
             line-height: 1.7;
-            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        /* Информационные секции */
+        .info-section {
+            margin: 60px 0;
+        }
+
+        .info-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .info-item {
+            padding: 24px;
+            background: var(--bg-muted);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .info-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
         }
 
         /* Кнопки */
-        .cta-container {
-            text-align: center;
-            margin-top: 60px;
+        .btn-container {
+            margin-top: 48px;
+            display: flex;
+            gap: 16px;
         }
 
         .btn {
             display: inline-block;
-            padding: 16px 45px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
             text-decoration: none;
-            border-radius: 4px;
-            font-size: 1.05em;
+            border-radius: 6px;
+            font-size: 14px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-            border: 2px solid transparent;
+            transition: background 0.2s;
+            border: 1px solid var(--primary);
         }
 
-        .btn-primary {
-            background: #2E7D32;
-            color: #FFFFFF;
-        }
-
-        .btn-primary:hover {
-            background: #1B5E20;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
+        .btn:hover {
+            background: var(--primary-hover);
+            border-color: var(--primary-hover);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #2E7D32;
-            border-color: #2E7D32;
-            margin-left: 20px;
+            color: var(--text);
+            border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: #2E7D32;
-            color: #FFFFFF;
+            background: var(--bg-muted);
         }
 
-        /* Слоган внизу */
-        .footer-quote {
-            text-align: center;
-            margin-top: 100px;
-            padding: 40px;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2em;
-            color: #795548;
-            font-style: italic;
-            opacity: 0.7;
+        /* Разделитель */
+        .divider {
+            height: 1px;
+            background: var(--border);
+            margin: 60px 0;
         }
     </style>
 </head>
 <body>
     <!-- Боковая панель -->
-    <div class="sidebar">
+    <nav class="sidebar">
         <div class="sidebar-header">
-            <h2>Shanti Island</h2>
-            <div class="sidebar-subtitle">Онлайн курс</div>
+            <h1>Shanti Island</h1>
         </div>
-
-        <nav class="nav-section">
-            <a href="index.html" class="nav-item active">
-                <span class="day-marker">•</span>
-                <span>Начало</span>
-            </a>
-            <a href="day-1.html" class="nav-item">
-                <span class="day-marker">1</span>
-                <span>Введение</span>
-            </a>
-            <a href="day-2.html" class="nav-item">
-                <span class="day-marker">2</span>
-                <span>Практика</span>
-            </a>
-            <a href="day-3.html" class="nav-item">
-                <span class="day-marker">3</span>
-                <span>Осознанность</span>
-            </a>
-            <a href="day-4.html" class="nav-item">
-                <span class="day-marker">4</span>
-                <span>Гармония</span>
-            </a>
-            <a href="day-5.html" class="nav-item">
-                <span class="day-marker">5</span>
-                <span>Энергия</span>
-            </a>
-            <a href="day-6.html" class="nav-item">
-                <span class="day-marker">6</span>
-                <span>Трансформация</span>
-            </a>
-            <a href="day-7.html" class="nav-item">
-                <span class="day-marker">7</span>
-                <span>Интеграция</span>
-            </a>
-        </nav>
-    </div>
+        <a href="index.html" class="nav-item active">Начало курса</a>
+        <a href="day-1.html" class="nav-item">День 1 — Введение</a>
+        <a href="day-2.html" class="nav-item">День 2 — Практика</a>
+        <a href="day-3.html" class="nav-item">День 3 — Осознанность</a>
+        <a href="day-4.html" class="nav-item">День 4 — Гармония</a>
+        <a href="day-5.html" class="nav-item">День 5 — Энергия</a>
+        <a href="day-6.html" class="nav-item">День 6 — Трансформация</a>
+        <a href="day-7.html" class="nav-item">День 7 — Интеграция</a>
+    </nav>
 
     <!-- Основной контент -->
-    <div class="main-content">
+    <main class="main-content">
         <div class="hero">
-            <h1>Добро пожаловать</h1>
-            <div class="divider"></div>
-            <p class="hero-subtitle">Семидневная программа совершенствования и гармонии</p>
-            <p class="hero-description">
-                Вы начинаете уникальную программу развития длительностью семь дней. 
-                Каждый день посвящён определённой теме: от медитации до гармонии с природой. 
-                Вы научитесь глубокому осознанному дыханию, практикам йоги, работе с энергией 
-                и откроете красоту внутри себя.
+            <h2>Добро пожаловать</h2>
+            <div class="subtitle">Онлайн курс совершенствования и гармонии</div>
+            <p>
+                Вы начинаете программу развития длительностью семь дней. 
+                Каждый день посвящён определённой теме: от медитации до гармонии с природой.
+            </p>
+            <p>
+                Вы научитесь глубокому осознанному дыханию, практическим упражнениям, 
+                работе с энергией и откроете красоту в себе.
             </p>
         </div>
 
-        <!-- Особенности курса -->
-        <div class="course-features">
-            <div class="feature-card">
-                <div class="feature-title">Семь дней практики</div>
-                <div class="feature-text">
-                    Структурированная программа с пошаговыми упражнениями, 
-                    видеоматериалами и медитативными практиками.
-                </div>
-            </div>
+        <div class="divider"></div>
 
-            <div class="feature-card">
-                <div class="feature-title">Гибкий подход</div>
-                <div class="feature-text">
-                    Вы сами выбираете темп и время занятий. 
-                    Практика адаптируется под ваш ритм жизни.
+        <div class="info-section">
+            <h3>О программе</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>Структурированная программа</h4>
+                    <p>Семь дней пошаговых упражнений с видео-сопровождением и практическими заданиями</p>
                 </div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-title">Сообщество поддержки</div>
-                <div class="feature-text">
-                    Присоединяйтесь к сообществу участников для обмена опытом 
-                    и взаимной поддержки на пути.
+                <div class="info-item">
+                    <h4>Гибкий режим</h4>
+                    <p>Вы сами выбираете темп занятий и темы. Никаких жёстких расписаний</p>
+                </div>
+                <div class="info-item">
+                    <h4>Поддержка сообщества</h4>
+                    <p>Присоединяйтесь к общему чату участников для обмена опытом</p>
                 </div>
             </div>
         </div>
 
-        <!-- Кнопки действия -->
-        <div class="cta-container">
-            <a href="day-1.html" class="btn btn-primary">Начать курс</a>
-            <a href="#about" class="btn btn-secondary">Подробнее</a>
+        <div class="btn-container">
+            <a href="day-1.html" class="btn">Начать курс</a>
+            <a href="#info" class="btn btn-secondary">Подробнее</a>
         </div>
-
-        <!-- Слоган -->
-        <div class="footer-quote">
-            В служении возвращаемся к себе
-        </div>
-    </div>
+    </main>
 </body>
 </html>
