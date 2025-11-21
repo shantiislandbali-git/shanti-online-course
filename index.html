@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanti Island - Онлайн Курс</title>
+    <title>Shanti Island | Онлайн Курс</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,239 +13,328 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #E0F7FA 0%, #FFFFFF 50%, #FFF6E0 100%);
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to bottom, #FFF8E1 0%, #FFFFFF 100%);
             min-height: 100vh;
             display: flex;
+            color: #795548;
         }
 
         /* Боковая панель */
         .sidebar {
-            width: 250px;
+            width: 280px;
             background: #FFFFFF;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-            padding: 30px 15px;
+            box-shadow: 2px 0 20px rgba(46, 125, 50, 0.08);
+            padding: 40px 0;
             position: fixed;
             height: 100vh;
             overflow-y: auto;
         }
 
+        .sidebar-header {
+            padding: 0 25px 30px 25px;
+            border-bottom: 1px solid #A5D6A7;
+        }
+
         .sidebar h2 {
-            color: #00BCD4;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            text-align: center;
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            color: #2E7D32;
+            font-size: 1.5em;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.85em;
+            color: #795548;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        .nav-section {
+            padding: 25px 0;
         }
 
         .nav-item {
-            display: block;
-            padding: 12px 15px;
-            margin: 8px 0;
-            color: #333;
+            display: flex;
+            align-items: center;
+            padding: 14px 25px;
+            margin: 2px 0;
+            color: #795548;
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-size: 0.95em;
+            letter-spacing: 0.3px;
         }
 
         .nav-item:hover {
-            background: #E0F7FA;
-            border-left-color: #00BCD4;
-            padding-left: 20px;
+            background: rgba(165, 214, 167, 0.15);
+            border-left-color: #A5D6A7;
+            color: #2E7D32;
         }
 
         .nav-item.active {
-            background: #00BCD4;
-            color: white;
-            border-left-color: #D4AF37;
-            font-weight: 600;
+            background: rgba(165, 214, 167, 0.25);
+            border-left-color: #2E7D32;
+            color: #2E7D32;
+            font-weight: 500;
         }
 
-        .nav-item .day-number {
-            display: inline-block;
-            background: #D4AF37;
-            color: white;
-            width: 25px;
-            height: 25px;
+        .day-marker {
+            min-width: 32px;
+            height: 32px;
+            border: 2px solid #A5D6A7;
             border-radius: 50%;
-            text-align: center;
-            line-height: 25px;
-            margin-right: 10px;
-            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+            color: #2E7D32;
+            transition: all 0.3s ease;
         }
 
-        .nav-item.active .day-number {
-            background: white;
-            color: #00BCD4;
+        .nav-item.active .day-marker {
+            background: #2E7D32;
+            border-color: #2E7D32;
+            color: #FFFFFF;
         }
 
         /* Основной контент */
         .main-content {
-            margin-left: 250px;
-            padding: 40px;
+            margin-left: 280px;
+            padding: 60px;
             flex: 1;
         }
 
         .hero {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 80px 40px;
         }
 
         .hero h1 {
-            font-size: 2.8em;
-            color: #00BCD4;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2em;
+            color: #2E7D32;
             margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
-        .hero .subtitle {
+        .hero-subtitle {
             font-size: 1.3em;
-            color: #D0AF37;
+            color: #795548;
             margin-bottom: 30px;
-            font-weight: 500;
+            font-weight: 400;
+            line-height: 1.5;
         }
 
-        .hero p {
-            font-size: 1.1em;
-            color: #555;
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, #A5D6A7, #FFCC80);
+            margin: 30px auto;
+        }
+
+        .hero-description {
+            font-size: 1.05em;
+            color: #795548;
             line-height: 1.8;
-            margin-bottom: 40px;
+            margin-top: 30px;
+            opacity: 0.9;
         }
 
-        /* Карточки с информацией */
-        .info-cards {
+        /* Карточки курса */
+        .course-features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin: 40px 0;
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto 60px;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s;
+        .feature-card {
+            background: #FFFFFF;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(46, 125, 50, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 3px solid #A5D6A7;
         }
 
-        .card:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
         }
 
-        .card .icon {
-            font-size: 3em;
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3em;
+            color: #2E7D32;
             margin-bottom: 15px;
+            font-weight: 600;
         }
 
-        .card h3 {
-            color: #00BCD4;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        .card p {
-            color: #666;
-            line-height: 1.6;
+        .feature-text {
+            color: #795548;
+            line-height: 1.7;
+            font-size: 0.95em;
         }
 
         /* Кнопки */
-        .btn-container {
+        .cta-container {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
         .btn {
             display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #00BCD4 40%, #40E0D0 80%);
-            color: white;
+            padding: 16px 45px;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 1.1em;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+            border-radius: 4px;
+            font-size: 1.05em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            border: 2px solid transparent;
         }
 
-        .btn:hover {
+        .btn-primary {
+            background: #2E7D32;
+            color: #FFFFFF;
+        }
+
+        .btn-primary:hover {
+            background: #1B5E20;
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(0, 188, 212, 0.5);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.25);
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #D0AF37 40%, #FFD840 80%);
-            margin-left: 15px;
+            background: transparent;
+            color: #2E7D32;
+            border-color: #2E7D32;
+            margin-left: 20px;
+        }
+
+        .btn-secondary:hover {
+            background: #2E7D32;
+            color: #FFFFFF;
+        }
+
+        /* Слоган внизу */
+        .footer-quote {
+            text-align: center;
+            margin-top: 100px;
+            padding: 40px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            color: #795548;
+            font-style: italic;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <!-- Боковая панель навигации -->
+    <!-- Боковая панель -->
     <div class="sidebar">
-        <h2>🌴 Shanti Course</h2>
-        <a href="index.html" class="nav-item active">
-            <span class="day-number">🏠</span> Начало курса
-        </a>
-        <a href="day-1.html" class="nav-item">
-            <span class="day-number">1</span> День 1 - Введение
-        </a>
-        <a href="day-2.html" class="nav-item">
-            <span class="day-number">2</span> День 2 - Практика
-        </a>
-        <a href="day-3.html" class="nav-item">
-            <span class="day-number">3</span> День 3 - Осознанность
-        </a>
-        <a href="day-4.html" class="nav-item">
-            <span class="day-number">4</span> День 4 - Гармония
-        </a>
-        <a href="day-5.html" class="nav-item">
-            <span class="day-number">5</span> День 5 - Энергия
-        </a>
-        <a href="day-6.html" class="nav-item">
-            <span class="day-number">6</span> День 6 - Трансформация
-        </a>
-        <a href="day-7.html" class="nav-item">
-            <span class="day-number">7</span> День 7 - Интеграция
-        </a>
+        <div class="sidebar-header">
+            <h2>Shanti Island</h2>
+            <div class="sidebar-subtitle">Онлайн курс</div>
+        </div>
+
+        <nav class="nav-section">
+            <a href="index.html" class="nav-item active">
+                <span class="day-marker">•</span>
+                <span>Начало</span>
+            </a>
+            <a href="day-1.html" class="nav-item">
+                <span class="day-marker">1</span>
+                <span>Введение</span>
+            </a>
+            <a href="day-2.html" class="nav-item">
+                <span class="day-marker">2</span>
+                <span>Практика</span>
+            </a>
+            <a href="day-3.html" class="nav-item">
+                <span class="day-marker">3</span>
+                <span>Осознанность</span>
+            </a>
+            <a href="day-4.html" class="nav-item">
+                <span class="day-marker">4</span>
+                <span>Гармония</span>
+            </a>
+            <a href="day-5.html" class="nav-item">
+                <span class="day-marker">5</span>
+                <span>Энергия</span>
+            </a>
+            <a href="day-6.html" class="nav-item">
+                <span class="day-marker">6</span>
+                <span>Трансформация</span>
+            </a>
+            <a href="day-7.html" class="nav-item">
+                <span class="day-marker">7</span>
+                <span>Интеграция</span>
+            </a>
+        </nav>
     </div>
 
     <!-- Основной контент -->
     <div class="main-content">
         <div class="hero">
-            <h1>🌿 Добро пожаловать на Shanti Island!</h1>
-            <div class="subtitle">🧘 Онлайн совершенствования и гармонии</div>
-            <p>
-                Вы начинаете уникальную программу развития длительностью 7 дней. Каждый день посвящён определённой теме:
-                от медитации до гармонии с натурой. Вы научитесь глубокому осознанному дыханию, упражнениям, работе с энергией и откроете красоту в себе.
+            <h1>Добро пожаловать</h1>
+            <div class="divider"></div>
+            <p class="hero-subtitle">Семидневная программа совершенствования и гармонии</p>
+            <p class="hero-description">
+                Вы начинаете уникальную программу развития длительностью семь дней. 
+                Каждый день посвящён определённой теме: от медитации до гармонии с природой. 
+                Вы научитесь глубокому осознанному дыханию, практикам йоги, работе с энергией 
+                и откроете красоту внутри себя.
             </p>
         </div>
 
-        <!-- Информационные карточки -->
-        <div class="info-cards">
-            <div class="card">
-                <div class="icon">🧩</div>
-                <h3>7 дней практики</h3>
-                <p>Структурированная программа с пошаговыми упражнениями и видео-сопровождением</p>
+        <!-- Особенности курса -->
+        <div class="course-features">
+            <div class="feature-card">
+                <div class="feature-title">Семь дней практики</div>
+                <div class="feature-text">
+                    Структурированная программа с пошаговыми упражнениями, 
+                    видеоматериалами и медитативными практиками.
+                </div>
             </div>
-            <div class="card">
-                <div class="icon">🕓</div>
-                <h3>Гибкий режим занятий</h3>
-                <p>Вы сами выбираете темп занятий и темы. Никаких жёстких расписаний</p>
+
+            <div class="feature-card">
+                <div class="feature-title">Гибкий подход</div>
+                <div class="feature-text">
+                    Вы сами выбираете темп и время занятий. 
+                    Практика адаптируется под ваш ритм жизни.
+                </div>
             </div>
-            <div class="card">
-                <div class="icon">💚</div>
-                <h3>Сообщество поддержки</h3>
-                <p>Присоединяйтесь к общему чату участников для обмена опытом и поддержки</p>
+
+            <div class="feature-card">
+                <div class="feature-title">Сообщество поддержки</div>
+                <div class="feature-text">
+                    Присоединяйтесь к сообществу участников для обмена опытом 
+                    и взаимной поддержки на пути.
+                </div>
             </div>
         </div>
 
-        <!-- Кнопки -->
-        <div class="btn-container">
-            <a href="day-1.html" class="btn">🚀 Начать курс</a>
-            <a href="#info" class="btn btn-secondary">📚 Подробнее о курсе</a>
+        <!-- Кнопки действия -->
+        <div class="cta-container">
+            <a href="day-1.html" class="btn btn-primary">Начать курс</a>
+            <a href="#about" class="btn btn-secondary">Подробнее</a>
+        </div>
+
+        <!-- Слоган -->
+        <div class="footer-quote">
+            В служении возвращаемся к себе
         </div>
     </div>
 </body>
